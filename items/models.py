@@ -57,5 +57,5 @@ class Review(models.Model):
         return f"{self.author}: {self.text[:10]}..."
 
     class Meta:
-        verbose_name = "Объявление"
-        verbose_name_plural = "Объявления"
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
