@@ -10,7 +10,7 @@ class IsAdmin(BasePermission):
         return request.user.role == 'admin'
 
 
-class IsOwner(BasePermission):
+class IsAuthor(BasePermission):
     """Проверяет, является ли пользователь владельцем объекта."""
 
     message = "Доступно только владельцу"
