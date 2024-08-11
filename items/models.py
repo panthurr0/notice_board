@@ -28,6 +28,7 @@ class Advertisement(models.Model):
         return f"{self.title}"
 
     class Meta:
+        ordering = ['-created_at']
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
 
