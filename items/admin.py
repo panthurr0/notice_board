@@ -13,4 +13,3 @@ class AdvertisementAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ("id", "author", "created_at")
     list_filter = ("id", "author")
-
