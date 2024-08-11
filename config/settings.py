@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # packages
     "rest_framework",
+    "rest_framework_simplejwt",
     "corsheaders",
     "drf_yasg",
     # apps
@@ -84,19 +85,37 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
-
 STATIC_URL = "static/"
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.User"
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",  # todo IsAuthenticated
+    ],
+}
 
 # cors
 CORS_ALLOWED_ORIGINS = [
     os.getenv("CORS_FRONTEND"),
 ]
 CORS_ALLOW_ALL_ORIGINS = False
+
+# email settings
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', False) == 'True'
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', False) == 'True'
+
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
