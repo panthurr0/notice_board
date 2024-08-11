@@ -1,5 +1,11 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import (
+    ListAPIView,
+    CreateAPIView,
+    RetrieveAPIView,
+    UpdateAPIView,
+    DestroyAPIView,
+)
 from rest_framework.permissions import AllowAny
 
 from items.models import Advertisement, Review
@@ -21,13 +27,14 @@ class AdvertisementCreateApiView(CreateAPIView):
 
 class AdvertisementListApiView(ListAPIView):
     """Выводит список всех объявлений"""
+
     queryset = Advertisement.objects.all()
     serializer_class = AdvertisementSerializer
     permission_classes = (AllowAny,)
     pagination_class = AdvertisementPaginator
 
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ('title',)
+    filterset_fields = ("title",)
 
 
 class AdvertisementRetrieveApiView(RetrieveAPIView):

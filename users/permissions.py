@@ -7,7 +7,7 @@ class IsAdmin(BasePermission):
     message = "Доступно только модератору"
 
     def has_permission(self, request, view):
-        return request.user.role == 'admin'
+        return request.user.role == "admin"
 
 
 class IsAuthor(BasePermission):

@@ -6,28 +6,22 @@ NULLABLE = {"blank": True, "null": True}
 
 class User(AbstractUser):
     username = None
-    email = models.EmailField(
-        verbose_name="Почта", unique=True
-    )
+    email = models.EmailField(verbose_name="Почта", unique=True)
     first_name = models.CharField(
         verbose_name="Имя пользователя", max_length=75, **NULLABLE
     )
     last_name = models.CharField(
         verbose_name="Фамилия пользователя", max_length=75, **NULLABLE
     )
-    phone = models.CharField(
-        verbose_name="Номер телефона", max_length=30, **NULLABLE
-    )
-    image = models.ImageField(
-        verbose_name="Аватар", upload_to="users/", **NULLABLE
-    )
+    phone = models.CharField(verbose_name="Номер телефона", max_length=30, **NULLABLE)
+    image = models.ImageField(verbose_name="Аватар", upload_to="users/", **NULLABLE)
 
-    USER_ROLE = 'user'
-    ADMIN_ROLE = 'admin'
+    USER_ROLE = "user"
+    ADMIN_ROLE = "admin"
 
     ROLE_CHOICES = [
-        (USER_ROLE, 'User'),
-        (ADMIN_ROLE, 'Admin'),
+        (USER_ROLE, "User"),
+        (ADMIN_ROLE, "Admin"),
     ]
 
     role = models.CharField(
