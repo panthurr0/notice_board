@@ -15,6 +15,7 @@ class User(AbstractUser):
     )
     phone = models.CharField(verbose_name="Номер телефона", max_length=30, **NULLABLE)
     image = models.ImageField(verbose_name="Аватар", upload_to="users/", **NULLABLE)
+    token = models.CharField(verbose_name="Токен", max_length=10, default="-")
 
     USER_ROLE = "user"
     ADMIN_ROLE = "admin"
