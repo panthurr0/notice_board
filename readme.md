@@ -25,7 +25,7 @@
 
 ## Getting started:
 
-1. [Описать переменные окружения отсюда](.env-sample)
+1. [Описать переменные окружения отсюда](.env-sample) в файл .env
 2. Запуск проекта:\
    `docker compose up --build -d`
 При запуске проекта автоматически применяться все миграции, а также [команды из fill.py](users/management/commands/fill.py)
