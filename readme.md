@@ -28,6 +28,7 @@
 1. [Описать переменные окружения отсюда](.env-sample)
 2. Запуск проекта:\
    `docker compose up --build -d`
+При запуске проекта автоматически применяться все миграции, а также [команды из fill.py](users/management/commands/fill.py)
 3. Адрес для доступа: \
 http://localhost:8000/
 
@@ -63,3 +64,15 @@ http://localhost:8000/
 "token": "JQhvHYDC",
 "new_password": "89321fq"
 }` \
+
+email: bla@mail.ru
+pass: 111
+права: суперпользователь
+
+email: olapopaola@mail.ru
+pass: 4104141
+права: админ
+
+email: jendoc@inbox.ru
+pass: 620414
+права: обычный пользователь
