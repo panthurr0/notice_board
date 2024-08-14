@@ -48,3 +48,18 @@ http://localhost:8000/
 "ad": 1,
 "created_at": #
 }`
+Для регистрации и логина:\
+`{
+"email": "your_email",
+"password": "your_password"
+}` \
+Для сброса пароля пользователем:\
+`{
+"email": "your_email"
+}` \
+Для подтверждения сброса пароля:\
+`{
+"uid": "6",
+"token": "JQhvHYDC",
+"new_password": "89321fq"
+}` \
