@@ -28,7 +28,7 @@
 1. [Описать переменные окружения отсюда](.env-sample) в файл .env
 2. Запуск проекта:\
    `docker compose up --build -d`
-При запуске проекта автоматически применяться все миграции, а также [команды из fill.py](users/management/commands/fill.py)
+При запуске проекта автоматически применяться все миграции, а также [команда fill.py](users/management/commands/fill.py)
 3. Адрес для доступа: \
 http://localhost:8000/
 
