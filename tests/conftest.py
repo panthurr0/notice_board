@@ -1,7 +1,7 @@
 import pytest
 from rest_framework.test import APIClient
 
-from items.models import Advertisement
+from items.models import Advertisement, Review
 from users.models import User
 
 
@@ -24,4 +24,5 @@ def advertisement(user):
 
 @pytest.fixture
 def review(user):
-    return Advertisement.objects.create(text="Кресло понравилось!", ad=1, author=user)
+    ad = Advertisement.objects.create(title="Кресло", price=150, author=user)
+    return Review.objects.create(text="Кресло понравилось!", ad=ad, author=user)
