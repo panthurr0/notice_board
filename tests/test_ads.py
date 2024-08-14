@@ -7,7 +7,7 @@ from items.models import Advertisement
 
 @pytest.mark.django_db
 def test_advertisement_create(api_client):
-    """Тестирование создания привычки."""
+    """Тестирование создания объявления."""
     url = reverse("items:advertisement-create")
     data = {"title": "Стул", "price": 120}
     response = api_client.post(url, data)
@@ -18,7 +18,7 @@ def test_advertisement_create(api_client):
 
 @pytest.mark.django_db
 def test_advertisement_list(api_client):
-    """Тестирование списка привычек."""
+    """Тестирование списка объявлений."""
     url = reverse("items:advertisement-list")
     response = api_client.get(url)
 
@@ -27,7 +27,7 @@ def test_advertisement_list(api_client):
 
 @pytest.mark.django_db
 def test_advertisement_retrieve(api_client, advertisement):
-    """Тестирование просмотра привычки."""
+    """Тестирование просмотра объявления."""
     url = reverse("items:advertisement-detail", args=(advertisement.pk,))
     response = api_client.get(url)
     data = response.json()
@@ -38,7 +38,7 @@ def test_advertisement_retrieve(api_client, advertisement):
 
 @pytest.mark.django_db
 def test_advertisement_update(api_client, advertisement):
-    """Тестирование редактирования привычки."""
+    """Тестирование редактирования объявления."""
     url = reverse("items:advertisement-update", args=(advertisement.pk,))
     data = {"price": "200"}
     response = api_client.patch(url, data)
@@ -50,7 +50,7 @@ def test_advertisement_update(api_client, advertisement):
 
 @pytest.mark.django_db
 def test_advertisement_delete(api_client, advertisement):
-    """Тестирование удаления привычки."""
+    """Тестирование удаления объявления."""
     url = reverse("items:advertisement-delete", args=(advertisement.pk,))
     response = api_client.delete(url)
 
