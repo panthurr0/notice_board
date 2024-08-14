@@ -1,0 +1,35 @@
+[
+  {
+    "model": "items.advertisement",
+    "pk": 1,
+    "fields": {
+      "title": "Диван",
+      "author": 1,
+      "price": 100,
+      "description": "мягкий",
+      "created_at": "2024-08-11T05:32:05.341Z"
+    }
+  },
+  {
+    "model": "items.advertisement",
+    "pk": 2,
+    "fields": {
+      "title": "Стул",
+      "author": 2,
+      "price": 300,
+      "description": "твёрдый",
+      "created_at": "2024-08-11T05:32:07.352Z"
+    }
+  },
+  {
+    "model": "items.advertisement",
+    "pk": 3,
+    "fields": {
+      "title": "Кресло",
+      "author": 2,
+      "price": 750,
+      "description": "для высоких",
+      "created_at": "2024-08-11T05:34:51.074Z"
+    }
+  }
+]

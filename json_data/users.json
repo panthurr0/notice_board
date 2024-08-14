@@ -1,0 +1,44 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ZO8rOCmOPkMHBXDsXJddrg$SKljq5W/b3FXsdnJsOgWaPE5hZaR9VkvfAlu6WP9xUQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-11T05:29:42Z",
+      "email": "olapopaola@mail.ru",
+      "first_name": null,
+      "last_name": null,
+      "phone": null,
+      "image": "",
+      "token": "-",
+      "role": "admin",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$isYhgpq4QQ9SNMQgl9qAB6$BiWLcwyi/ZHWgm6V/exKCutSxXOdKWf6I5MuDc2dvlA=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-11T05:32:38Z",
+      "email": "jendoc@inbox.ru",
+      "first_name": null,
+      "last_name": null,
+      "phone": null,
+      "image": "",
+      "token": "-",
+      "role": "user",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
