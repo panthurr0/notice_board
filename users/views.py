@@ -1,13 +1,11 @@
-from django.core.mail import send_mail
 from rest_framework import status
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, GenericAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from config.settings import DEFAULT_FROM_EMAIL
 from users.models import User
-from users.serializers import UserSerializer, UserResetPasswordSerializer
+from users.serializers import UserSerializer, UserResetPasswordSerializer, UserResetPasswordConfirmSerializer
 from users.services import generate_password, send_email
 
 
@@ -42,7 +40,7 @@ class UserResetPasswordView(APIView):
 
 
 class UserResetPasswordConfirmView(APIView):
-    serializer_class = UserResetPasswordSerializer
+    serializer_class = UserResetPasswordConfirmSerializer
     permission_classes = (AllowAny,)
 
     def post(self, request):
@@ -52,7 +50,7 @@ class UserResetPasswordConfirmView(APIView):
 
         user = User.objects.get(
             id=uid
-        )  # todo обработать exception, что все поля заполнены
+        )
         if user.token.strip() == token.strip():
             user.set_password(new_password)
             user.token = "-"
@@ -60,7 +58,7 @@ class UserResetPasswordConfirmView(APIView):
             return Response(
                 {"success": "Отлично! Ваш пароль обновлён"}, status=status.HTTP_200_OK
             )
-        else:
-            return Response(
-                {"error": "Что-то не так"}, status=status.HTTP_400_BAD_REQUEST
-            )
+
+        return Response(
+            {"error": "Поля указаны не верно"}, status=status.HTTP_400_BAD_REQUEST
+        )
