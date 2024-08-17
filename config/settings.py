@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "django_filters",
     # apps
-    "users",
     "items",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -111,7 +111,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
-# email settings
+# email
 EMAIL_HOST = "smtp.yandex.ru"
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
@@ -121,3 +121,17 @@ EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", False) == "True"
 
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# swagger
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        },
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
